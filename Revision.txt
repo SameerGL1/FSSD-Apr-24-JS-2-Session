@@ -1,0 +1,176 @@
+Agenda 
+        1. Functions 
+            Functions in JS are fundamental building blocks that allow us to encapsulate code into reusable blocks.
+
+            1.1 Function Declaration 
+                Defines the function with different parameters 
+                
+                Syntax 
+                    function Function_Name( parameters ) { 
+                        // Scope of the function 
+                        // Variable is defined 
+                        // Code 
+                    }
+
+            1.2 Function Expression 
+                Example 
+                        const greet = function( name ){ 
+                            console.log( "Hello ", +name );
+                        };
+
+                        greet( "Steven" );  // Ouput: Hello Steven
+            
+            1.3 Arrow Function
+                Arraow Function provides shorter syntax to bing 'this' value 
+
+                Syntax
+                    const Function_Name = ( parameters ) => {
+                        // defined the scope of the function 
+                        // code for the function 
+                    }
+
+            1.4 IIFE Function 
+                Immediately Invoked Function Expression. Executes as soon as the function is defined. 
+
+                Syntax
+                    ( function() {
+                        // defining the scope of the function 
+                        // code 
+                    }) ( parameters );
+
+                Example
+1.                  ( function(){
+                        console.log( "This runs Immediately!" );
+                    }) ();
+
+
+                    console.log( typeof privateVar );                    // output: undefined
+
+2.                  ( function(){
+                        var privateVar = " I am Private Variable";      // Ouput: I am Private Variable
+                        console.log(privateVar); 
+                    } )();
+
+                    console.log( typeof privateVar );                   // output: undefined
+
+3.                  var globalVar = " I am a Global Variable";
+
+                    ( function(){
+                        var globalVar = " Value is assigned inside IIFE function";
+                        console.log(globalVar);           // Output: Value is assigned inside IIFE function
+                    })();
+
+                    console.log(globalVar);         // Ouput: I am a Global Variable
+
+4.                  var numbers = [1, 2, 3, 4, 5];
+
+                    ( function(arr){        
+                        for( var i=0 ; i< arr.length ; i++ ){
+                            console.log(arr[i]);    // output: 1 2 3 4 5
+                        }
+                    })(numbers);
+
+Search Operation 
+    1. User I will provide an input 
+    2. Check input exists in the repository or not 
+    3. Search is successfule 
+    4. Search is failed 
+
+Amazon 
+    1. Provide the name of the product 
+    2. Search can be done based on category 
+
+
+
+2. Global & Local Scope 
+    Discussed in IIFE Function 
+
+
+
+3. Objects 
+        Object is a collection of properties and functions that are used to represent a real-world 
+        object or concept. 
+        an be used to store or manipulate the data 
+
+            1. Using object literal notation 
+                var myObject1 = {
+                    prop1    : "value1",
+                    "prop 2" : "value2",
+
+                    meth1: function(){
+                        // function code 
+                    }
+                };
+
+            2. Using the object constructor:
+                var myObject2 = new Object();
+
+                myObject2.property1 = "value 1";
+                myObject2.property2 = "value 2";
+
+                myObject2.method1 = function(){
+                    // function code 
+                };
+
+            3. Using Object.create()
+                
+                var myObject3 = Object.create( Object.prototype );
+                              = Object.create( proto[, propertiesObject] );
+
+                myObject3.property1 = " value 1";
+                myObject3.property2 = " value 2";
+                myObject3.method1 = function(){
+                    // function code 
+                }
+
+4. Call, Apply, & Bind
+
+    4.1 Call 
+            function calls a function with a given specific value & parameters provided indivisually 
+
+            Syntax
+                    function_name.call( thisArg, arg1, arg2, arg3,.... )
+
+            Example
+                    function greet( greeting, punctuations ){
+                        console.log( greeting + ',' + this.name + punctuations  );
+                    }
+
+                    const person = { name: 'Deep' };
+
+                    greet.call( person, 'Hello', '!' );       // Output: Hello, Deep!
+
+
+    4.2 Apply
+            function apply a function with a given specific value & parameters as an arary 
+
+            Syntax
+                    function_name.apply( thisArg, [Arguments Array] )
+
+            Example
+                    function greet( greeting, punctuations ){
+                        console.log( greeting + ',' + this.name + punctuations );
+                    }
+
+                    const person = { name: 'Divya' };
+
+                    greet.apply( person, [ 'Hello', '!' ] );        // Output: Hello, Divya
+
+    
+    4.3 Bind 
+            Bind function creates a new function that, when called it specific value with a given specific
+            sequence of arguments 
+
+            Syntax
+                    let bound_Func = function.bind( thisArg, arg1, arg2, arg3,... )
+
+            Example
+                    function greet( greeting, punctuations ){
+                        console.log( greeting + ',' + this.name + punctuations );
+                    }
+
+                    const person = { name: 'Harleen' };
+
+                    const greet_Harleen = greet.bind( person, 'Hello' );
+                    greet_Harleen('!');             // output: Hello, Harleen!
+
